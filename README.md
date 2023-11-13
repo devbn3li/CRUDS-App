@@ -1,2 +1,2 @@
 # Cashier-App
-CRUDS 
+CRUDS App
