@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/index.css">
+    <title>Cashier App</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Cashier</h2>
+        </div>
+        <div class="inputs">
+            <input class="title" type="text" placeholder="Title">
+            <div class="prices">
+                <input onkeyup="getTotal()" class="price" type="number" placeholder="Price">
+                <input onkeyup="getTotal()" class="taxes" type="number" placeholder="Taxes">
+                <input onkeyup="getTotal()" class="ads" type="number" placeholder="Ads">
+                <input onkeyup="getTotal()" class="discount" type="number" placeholder="Discount">
+                <small class="total"></small>
+            </div>
+            <input class="count" type="number" placeholder="Count">
+            <input class="category" type="text" placeholder="Category">
+            <button class="submet">Create</button>
+        </div>
+        <div class="outputes">
+            <input class="search" type="text" placeholder="Search">
+            <div class="searchbtn">
+                <button class="searchbytitle">Search By Title</button>
+                <button class="searchbycat">Search By Category</button>
+            </div>
+            <div class="deleteAll">
+
+            </div>
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Taxes</th>
+                    <th>Ads</th>
+                    <th>Discount</th>
+                    <th>Total</th>
+                    <th>Count</th>
+                    <th>Category</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+                <tbody class="tbody">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <script src="./JS/index.js"></script>
+</body>
+</html>

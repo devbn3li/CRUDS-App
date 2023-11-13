@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui;
+    background-color: #35363a;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.container {
+    width: 80%;
+}
+
+.header {
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.inputs {
+    width: 100%;
+}
+
+.prices input {
+    width: 20%;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px 0;
+    background-color: #181818;
+    color: white;
+}
+
+input:focus {
+    outline: none;
+    background-color: black;
+    transition: 0.5s;
+}
+
+small {
+    background-color: red;
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+small::before {
+    content: "Total: ";
+}
+
+.submet {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px 0;
+    background-color: #1c0234;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.submet:hover {
+    background-color: #27103d;
+    letter-spacing: 1px;
+}
+
+.searchbtn {
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchbtn button{
+    text-align: center;
+    width: 40%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px 0;
+    background-color: #1c0234;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.searchbtn button:hover {
+    background-color: #27103d;
+    letter-spacing: 1px;
+}
+
+.deleteAll {
+    margin: 10px 0;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+table th {
+    text-transform: uppercase;
+}
+
+th, td {
+    padding: 10px;
+}
+
+.updatebtn, .deletebtn {
+    text-align: center;
+    width: 100%;
+    padding: 7px 0;
+    border: none;
+    border-radius: 5px;
+    margin: 5px 0;
+    background-color: #1c0234;
+    color: white;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.updatebtn:hover, .deletebtn:hover {
+    background-color: #27103d;
+    letter-spacing: 1px;
+}
