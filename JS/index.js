@@ -85,7 +85,7 @@ function showProducts()
                 <td>${proData[i].total}</td>
                 <td>${proData[i].count}</td>
                 <td>${proData[i].category}</td>
-                <td><button class="updatebtn">Update</button></td>
+                <td><button onclick="updateProduct(${i})" class="updatebtn">Update</button></td>
                 <td><button onclick="removeProduct(${i})" class="deletebtn">Delete</button></td>
             </tr>
         `;
@@ -118,7 +118,34 @@ function removeAll()
     proData.splice(0);
     showProducts();
 }
-// count products
 // update product
+
+function updateProduct(i){
+    title.value = proData[i].title;
+    price.value = proData[i].price;
+    taxes.value = proData[i].taxes;
+    ads.value = proData[i].ads;
+    discount.value = proData[i].discount;
+    total.innerHTML = proData[i].total;
+    category.value = proData[i].category;
+    count.style.display = "none";
+    getTotal();
+    submet.innerHTML = "Update";
+    submet.onclick = function(){
+        proData[i].title = title.value;
+        proData[i].price = price.value;
+        proData[i].taxes = taxes.value;
+        proData[i].ads = ads.value;
+        proData[i].discount = discount.value;
+        proData[i].total = total.innerHTML;
+        proData[i].count = count.value;
+        proData[i].category = category.value;
+        localStorage.setItem("product", JSON.stringify(proData));
+        clearInputs();
+        showProducts();
+        submet.innerHTML = "Create";
+        submet.onclick = createProduct;
+    }
+}
 // search product
 // clean data
