@@ -80,9 +80,10 @@ function clearInputs()
     count.value = "";
     category.value = "";
 }
-// render products
+// show products
 function showProducts()
 {
+    getTotal();
     let table = ``;
     for(let i = 0; i < proData.length; i++)
     {
@@ -95,7 +96,6 @@ function showProducts()
                 <td>${proData[i].ads}</td>
                 <td>${proData[i].discount}</td>
                 <td>${proData[i].total}</td>
-                <td>${proData[i].count}</td>
                 <td>${proData[i].category}</td>
                 <td><button onclick="updateProduct(${i})" class="updatebtn">Update</button></td>
                 <td><button onclick="removeProduct(${i})" class="deletebtn">Delete</button></td>
@@ -144,6 +144,10 @@ function updateProduct(i){
     submet.innerHTML = "Update";
     mood = 'update';
     tmp = i;
+    scroll({
+        top: 0,
+        behavior: 'smooth'
+    })
 }
 // search product
 // clean data
