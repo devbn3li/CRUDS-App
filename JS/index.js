@@ -35,37 +35,40 @@ if(localStorage.getItem("product") != null)
 submet.onclick = function createProduct()
 {
     let newPro = {
-        title: title.value,
+        title: title.value.toLowerCase(),
         price: price.value,
         taxes: taxes.value,
         ads: ads.value,
         discount: discount.value,
         total: total.innerHTML,
         count: count.value,
-        category: category.value,
+        category: category.value.toLowerCase(),
     }
-
-    if(mood === 'create'){
-            if(newPro.count > 1)
-        {
-            for(let i = 0; i < newPro.count; i++)
+    if(title.value != ''
+    && price.value != ''
+    && category.value != ''
+    && newPro.count <= 100){
+        if(mood === 'create'){
+                if(newPro.count > 1)
             {
+                for(let i = 0; i < newPro.count; i++)
+                {
+                    proData.push(newPro);
+                }
+            }else {
                 proData.push(newPro);
             }
-        }else {
-            proData.push(newPro);
+        } else {
+            proData[tmp] = newPro;
+            mood = 'create';
+            submet.innerHTML = "Create";
+            count.style.display = "block";
         }
-    } else {
-        proData[tmp] = newPro;
-        mood = 'create';
-        submet.innerHTML = "Create";
-        count.style.display = "block";
+        clearInputs();
     }
-
 
 
     localStorage.setItem("product", JSON.stringify(proData));
-    clearInputs();
     showProducts();
 }
 // clear inputs
@@ -89,7 +92,7 @@ function showProducts()
     {
         table += `
             <tr>
-                <td>${i}</td>
+                <td>${i+1}</td>
                 <td>${proData[i].title}</td>
                 <td>${proData[i].price}</td>
                 <td>${proData[i].taxes}</td>
@@ -150,4 +153,60 @@ function updateProduct(i){
     })
 }
 // search product
-// clean data
+
+let searchMood = 'title'
+
+function getSearchMood(id){
+    let search = document.querySelector('.search')
+    if(id == 'searchTitle'){
+        searchMood = 'title';
+    } else{
+        searchMood = 'category';
+    }
+    search.placeholder = 'Search By '+ searchMood; 
+    search.focus()
+    search.value = '';
+    showProducts()
+}
+
+function searchData(value){
+    let table = '';
+    for(let i = 0; i < proData.length; i++){
+        if(searchMood == 'title'){
+                if(proData[i].title.includes(value.toLowerCase())){
+                table += `
+                <tr>
+                    <td>${i}</td>
+                    <td>${proData[i].title}</td>
+                    <td>${proData[i].price}</td>
+                    <td>${proData[i].taxes}</td>
+                    <td>${proData[i].ads}</td>
+                    <td>${proData[i].discount}</td>
+                    <td>${proData[i].total}</td>
+                    <td>${proData[i].category}</td>
+                    <td><button onclick="updateProduct(${i})" class="updatebtn">Update</button></td>
+                    <td><button onclick="removeProduct(${i})" class="deletebtn">Delete</button></td>
+                </tr>
+                `;
+            }
+        } else {
+            if(proData[i].category.includes(value.toLowerCase())){
+                table += `
+                <tr>
+                    <td>${i}</td>
+                    <td>${proData[i].title}</td>
+                    <td>${proData[i].price}</td>
+                    <td>${proData[i].taxes}</td>
+                    <td>${proData[i].ads}</td>
+                    <td>${proData[i].discount}</td>
+                    <td>${proData[i].total}</td>
+                    <td>${proData[i].category}</td>
+                    <td><button onclick="updateProduct(${i})" class="updatebtn">Update</button></td>
+                    <td><button onclick="removeProduct(${i})" class="deletebtn">Delete</button></td>
+                </tr>
+                `;
+            }
+        }
+    }
+    document.querySelector(".tbody").innerHTML = table;
+}

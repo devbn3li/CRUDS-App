@@ -25,10 +25,10 @@
             <button class="submet">Create</button>
         </div>
         <div class="outputes">
-            <input class="search" type="text" placeholder="Search">
+            <input onkeyup="searchData(this.value)" class="search" type="text" placeholder="Search">
             <div class="searchbtn">
-                <button class="searchbytitle">Search By Title</button>
-                <button class="searchbycat">Search By Category</button>
+                <button onclick="getSearchMood(this.id)" id="searchTitle">Search By Title</button>
+                <button onclick="getSearchMood(this.id)" id="searchCategory">Search By Category</button>
             </div>
             <div class="deleteAll">
 
