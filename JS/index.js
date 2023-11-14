@@ -8,6 +8,8 @@ let count = document.querySelector(".count");
 let category = document.querySelector(".category");
 let submet = document.querySelector(".submet");
 let search = document.querySelector(".search");
+let mood = 'create';
+let tmp;
 // get total price
 function getTotal()
 {
@@ -42,15 +44,25 @@ submet.onclick = function createProduct()
         count: count.value,
         category: category.value,
     }
-    if(newPro.count > 1)
-    {
-        for(let i = 0; i < newPro.count; i++)
+
+    if(mood === 'create'){
+            if(newPro.count > 1)
         {
+            for(let i = 0; i < newPro.count; i++)
+            {
+                proData.push(newPro);
+            }
+        }else {
             proData.push(newPro);
         }
-    }else {
-        proData.push(newPro);
+    } else {
+        proData[tmp] = newPro;
+        mood = 'create';
+        submet.innerHTML = "Create";
+        count.style.display = "block";
     }
+
+
 
     localStorage.setItem("product", JSON.stringify(proData));
     clearInputs();
@@ -126,26 +138,12 @@ function updateProduct(i){
     taxes.value = proData[i].taxes;
     ads.value = proData[i].ads;
     discount.value = proData[i].discount;
-    total.innerHTML = proData[i].total;
     category.value = proData[i].category;
     count.style.display = "none";
     getTotal();
     submet.innerHTML = "Update";
-    submet.onclick = function(){
-        proData[i].title = title.value;
-        proData[i].price = price.value;
-        proData[i].taxes = taxes.value;
-        proData[i].ads = ads.value;
-        proData[i].discount = discount.value;
-        proData[i].total = total.innerHTML;
-        proData[i].count = count.value;
-        proData[i].category = category.value;
-        localStorage.setItem("product", JSON.stringify(proData));
-        clearInputs();
-        showProducts();
-        submet.innerHTML = "Create";
-        submet.onclick = createProduct;
-    }
+    mood = 'update';
+    tmp = i;
 }
 // search product
 // clean data
