@@ -8,6 +8,7 @@ let count = document.querySelector(".count");
 let category = document.querySelector(".category");
 let submet = document.querySelector(".submet");
 let search = document.querySelector(".search");
+let light = document.getElementById("lightModeToggle");
 let mood = 'create';
 let tmp;
 // get total price
@@ -210,3 +211,11 @@ function searchData(value){
     }
     document.querySelector(".tbody").innerHTML = table;
 }
+
+document.getElementById('lightModeToggle').addEventListener('click', function() {
+    document.body.classList.toggle('light-mode');
+    light.innerText = light.innerText === 'Light Mode' ? 'Dark Mode' : 'Light Mode';
+    light.style.backgroundColor = light.style.backgroundColor === '#cacbcf' ? '#181818' : '#cacbcf';
+    light.style.color = light.style.color === 'black' ? 'white' : 'black';
+}
+);
