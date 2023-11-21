@@ -211,11 +211,12 @@ function searchData(value){
     }
     document.querySelector(".tbody").innerHTML = table;
 }
+//light mode
 
 document.getElementById('lightModeToggle').addEventListener('click', function() {
     document.body.classList.toggle('light-mode');
     light.innerText = light.innerText === 'Light Mode' ? 'Dark Mode' : 'Light Mode';
-    light.style.backgroundColor = light.style.backgroundColor === '#cacbcf' ? '#181818' : '#cacbcf';
-    light.style.color = light.style.color === 'black' ? 'white' : 'black';
+    light.style.backgroundColor = light.innerText === 'Light Mode' ? '#181818' : '#cacbcf';
+    light.style.color = light.innerText === 'Light Mode' ? '#cacbcf' : '#181818';
 }
 );

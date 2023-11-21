@@ -1,0 +1,61 @@
+#lightModeToggle {
+    background-color: #181818;
+    color: white;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.light-mode {
+    background-color: #d9dadf;
+    color: black;
+}
+
+.light-mode input {
+    background-color: #cacbcf;
+    color: black;
+}
+
+.light-mode input:focus {
+    background-color: #ffffff;
+    color: black;
+}
+
+.light-mode button {
+    background-color: #cacbcf;
+    color: black;
+}
+
+.light-mode button:hover {
+    background-color: #ffffff;
+    color: black;
+}
+
+.light-mode table {
+    color: black;
+}
+
+.light-mode table th {
+    color: black;
+}
+
+.light-mode table td {
+    color: black;
+}
+
+.light-mode .searchbtn button {
+    background-color: #cacbcf;
+    color: black;
+}
+
+.light-mode .searchbtn button:hover {
+    background-color: #ffffff;
+    color: black;
+}
+
+.light-mode .header {
+    color: black;
+}
